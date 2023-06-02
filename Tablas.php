@@ -1,7 +1,8 @@
 <?php
+    /*
     $v1 = $_POST["v1"];
     $v2 = $_POST["v2"];
-    
+    */  
     $Columnas = 10;
     $filas = 10;
     
@@ -31,14 +32,6 @@
     print "</tbody>\n";
     print "</table>\n";
 
-    /*
-    for ($i=0; $i < 100; $i++) {
-        for ($j=0; $j < 2; $j++) { 
-            echo "<br>";
-        }
-        echo "<span>sex</span>";
-    }
-    */
     $Resultado = 0;
 
 

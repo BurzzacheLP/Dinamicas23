@@ -1,5 +1,6 @@
 <?php
     $Resultado = $_SESSION["Resultado"];
-
-    echo("Resultado: " . $Resultado);
+    if ($Resultado > 0){
+        echo("Resultado: " . $Resultado);
+    }
 ?>
