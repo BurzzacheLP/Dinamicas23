@@ -1,26 +1,29 @@
 <?php
     $v1 = $_POST["v1"];
-
-    $Columnas = 4;
-    $filas = 3;
-
+    $v2 = $_POST["v2"];
+    
+    $Columnas = 10;
+    $filas = 10;
+    
     print "<table border=\"1\">\n";
     print "<tbody>\n";
-
+    
     print "<tr>\n";
     print "<th></th>\n";
-
+    
     for ($j=1; $j <= $Columnas; $j++) { 
         print "<th>$j</th>\n";
     }
-
+    
     print "</tr>\n";
-
-    for ($i=1; $j <= $filas; $i++) {
+    
+    for ($i=1; $i <= $filas; $i++) {
         print "<tr>\n";
-        print "<th>$j</th>\n";
+        print "<th>$i</th>\n";
         for ($j=1; $j <= $Columnas; $j++) { 
-            print "<td>$i - $j</td>\n";
+            $v3 = $i * $j;
+            
+            print "<td>$v3</td>\n";
         } 
         print "</tr>\n";
     }
