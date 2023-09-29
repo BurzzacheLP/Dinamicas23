@@ -312,24 +312,32 @@ buttonPerimetro.addEventListener("click", () => {
 })
 
 let varSelec = document.getElementById("selecForma").value;
-varSelec.addEventListener("change")
+varSelec.addEventListener("change", () =)
 
-switch (varSelec) {
+// Hacer que los elementos del documento cambien dependiendo del switch
+function cambiarElementos(selec){
+    switch (selec) {
     case "triangulo":
         console.log("triangulo")
-        break;
-
-    case "circulo":
         
         break;
+        
+    case "circulo":
+        console.log("circulo")
+        
+        break;
+        
 
     case "cuadrado":
+        console.log("cuadrado")
         
         break;
 
 
     default:
+        console.log("Nada");
         break;
+    }
 }
 
 
