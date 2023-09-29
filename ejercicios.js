@@ -44,50 +44,59 @@ function manejar(nombre, edad) {
 
 // 2) 
 
-let a = document.getElementById("n1.value")
-let b = document.getElementById("n2.value")
-let op = document.getElementById("operacion.value");
-let resultado = 0;
-
 let button2 = document.getElementById("boton2");
-button2.addEventListener("click", calculadora)
+button2.addEventListener("click",() => {
+    let val1 = document.getElementById("n1").value;
+    let val2 = document.getElementById("n2").value;
+    let op = document.getElementById("operacion").value;
+    
+    console.log(val1, val2)
+    calculadora(val1, val2, op)
+})
 
-function calculadora(a, b, op) {
-   console.log(operacion.value)
-    switch (operacion.value) {
-        case "+":
-            console.log("suma");
-            resultado = a + b;
-            break;
-            
-        case "-":
-            
-            break;
-            
-        case "*":
-            
-            break;
-                
-        case "/":
-                    
-            break;
-            
-        case "^":
-            
-            break;
-                
-        case "√":
 
+function calculadora(a, b, ope) {
+    
+    
+    let resultado = 0;
+    
+    let intA = parseInt(a)
+    let intB = parseInt(b)
+    
+    console.log(intA)
+    console.log(intB)
+    console.log(ope)
+    
+    switch (ope) {
+        case "sum":
+            resultado = intA + intB;
+            break;
+            
+        case "rest":
+            resultado = intA - intB;
+        break;
+        
+        case "multi":
+            resultado = intA * intB;
+            break;
+            
+        case "div":
+            resultado = intA / intB;    
+        break;
+            
+        case "pot":
+            resultado = intA ** intB;
             break;
         default:
             break;
     }
     console.log(`Resultado: ${resultado}`);
+    
+    document.getElementById("pRespuesta").innerHTML = "Resultado: " + resultado;
+    
+
+    
 }
-
-
-
-
 
 // 3)
 let varPartida = document.getElementById("PPartida");
@@ -150,8 +159,187 @@ function gmaps (PPartida, PDestino, MTransporte) {
     varRecargoFinal = "";
 }
 
+// 4)
 
 
 
+let button4 = document.getElementById("boton4");
+button4.addEventListener("click", () => {
+    let varTerritorio = document.getElementById("inputTerritorio").value;
+    let varPoblacion = document.getElementById("inputPoblacion").value;
+   
+    poblacion(varTerritorio, varPoblacion)
+});
+
+function poblacion (nTerritorio, nPoblacion){
+    var resultado;
 
 
+    let intPoblacion = parseInt(nPoblacion)
+
+    console.log("Territorio: " + nTerritorio)
+    console.log("Poblacion: " + intPoblacion)
+
+    switch (true) {
+        case (intPoblacion <= 500):
+            // Baja densidad
+
+            console.log("Poblacion baja")
+            resultado = "Poblacion baja";
+            break;
+            
+        case (intPoblacion <= 1500):
+            // Densidad aceptable   
+            
+            console.log("Poblacion aceptable")
+            resultado = "Poblacion aceptable";
+            break;
+                
+        case (intPoblacion <= 3000):
+            // Densidad elevada
+
+            console.log("Poblacion elevada")
+            resultado = "Poblacion elevada";
+            break;
+                    
+        case (intPoblacion <= 6000):
+            // Densidad excesiva
+
+            console.log("Poblacion excesiva")
+            resultado = "Poblacion excesiva";
+            break;
+    
+        default:
+            console.log("No esta tomando nada")
+            break;
+    }
+    document.getElementById("rPoblacion").innerHTML = nTerritorio + " tiene " + resultado;
+
+}
+
+// 5)
+
+let button5 = document.getElementById("boton5");
+button5.addEventListener("click", () => {
+    let varActual = document.getElementById("inputActual").value;
+    let varLimite = document.getElementById("inputLimite").value;
+    
+    numerosPrimos(varLimite, varActual);
+    
+});
+
+function numerosPrimos(varLimite, varNumActual){
+    // Quiero hacer que muestre los numeros primos (numActual)
+    // hasta el numero Limite que de el usuario
+    console.clear()
+    // Hacer que el si el limite no esta establecido
+    // Tome por default un valor de 100
+
+    // Usando el Algoritmo de Sieve of Eratosthenes
+    let esPrimo = Array.from({ lenght: intLimite + 1});
+
+
+    let intLimite = parseInt(varLimite);
+    console.log("Limite:" + intLimite);
+    console.log(typeof(intLimite))
+    
+
+    let intNumActual = parseInt(varNumActual);
+    console.log("Actual: " + intNumActual);
+    console.log(typeof(intNumActual))
+
+    if (intNumActual == 1) {
+        console.log("1 no es ni primo ni compuesto")
+    }
+
+    else if (intNumActual > 1) {
+        if(esPrimo[intNumActual] == true) console.log("${intNumeroActual} es primo")
+        else console.log("${intNumeroActual}No es primo")
+    }
+
+    SieveOfEratosthenes(esPrimo, limite);
+
+       
+}
+
+function SieveOfEratosthenes(esPrimo, limite){
+    for (let i = 0; i <=limite; i++) esPrimo[i] = true;
+
+    for (let i = 2; i <= Math.sqrt(limite); i++){
+        if ((esPrimo[i] = true)) {
+            for (let j = i * i; j <= limite; j += i) esPrimo[j] = false;
+        }
+    }
+}
+
+
+// 9) Conversor Farenheit a Celsius
+// Convertir Farenheit a Celisus por medio de kelvin
+
+let buttonKelvin = document.getElementById("Kelvinator");
+buttonKelvin.addEventListener("click", () => {
+    let varFareneit = document.getElementById("inputTemperatura").value;
+    
+    FaKaC(varFareneit);
+})
+
+// Farenhait a Kelvin a Celsius
+function FaKaC(Farenheit){
+    console.clear()
+    // Convertir Farenheit a Kelvin
+    let resultKelvin = 5/9 * (Farenheit - 32) + 273.15;
+    console.log(resultKelvin + " °K");
+
+    // Convertir Kelvin a Celsius
+    let resultCelsius = resultKelvin - 273.15;
+    console.log(resultCelsius + " °C")
+    
+    document.getElementById("rCelsius").innerHTML = resultCelsius + " °C";
+}
+
+
+// 10
+// Calcular el perimetro, area y volumen de tres formas geometricas
+
+let buttonPerimetro = document.getElementById("")
+buttonPerimetro.addEventListener("click", () => {
+    let varVal1 = document.getElementById("inputVal1").value;
+    let varVal2 = document.getElementById("inputVal2").value;
+    let varVal3 = document.getElementById("inputVal3").value;
+
+    
+    Perimetro(varVal1, varVal2, varVal3, varSelec);
+})
+
+let varSelec = document.getElementById("selecForma").value;
+varSelec.addEventListener("change")
+
+switch (varSelec) {
+    case "triangulo":
+        console.log("triangulo")
+        break;
+
+    case "circulo":
+        
+        break;
+
+    case "cuadrado":
+        
+        break;
+
+
+    default:
+        break;
+}
+
+
+function Perimetro(val1, val2, val3) {
+    console.clear();
+    let valResultado = 0;
+    // Quiero hacer que dependiendo de la
+    // seleccion se muestre un conjunto de 
+    // opciones con un label 
+
+
+    document.getElementById("rPerimetro").innerHTML = "Resultado: " + valResultado;
+}
