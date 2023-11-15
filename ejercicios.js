@@ -236,7 +236,7 @@ function numerosPrimos(varLimite, varNumActual){
     // Tome por default un valor de 100
 
     // Usando el Algoritmo de Sieve of Eratosthenes
-    let esPrimo = Array.from({ lenght: intLimite + 1});
+    let esPrimo = Array.from({ length: intLimite + 1});
 
 
     let intLimite = parseInt(varLimite);
@@ -301,36 +301,44 @@ function FaKaC(Farenheit){
 // 10
 // Calcular el perimetro, area y volumen de tres formas geometricas
 
-let buttonPerimetro = document.getElementById("")
+let buttonPerimetro = document.getElementById("botonPerimetro")
 buttonPerimetro.addEventListener("click", () => {
+    cambiarElementos()
+})
+
+let varSelec = document.getElementById("selecForma").value;
+
+console.log(varSelec)
+// Hacer que los elementos del documento cambien dependiendo del switch
+function cambiarElementos(selec){
     let varVal1 = document.getElementById("inputVal1").value;
     let varVal2 = document.getElementById("inputVal2").value;
     let varVal3 = document.getElementById("inputVal3").value;
 
-    
-    Perimetro(varVal1, varVal2, varVal3, varSelec);
-})
-
-let varSelec = document.getElementById("selecForma").value;
-varSelec.addEventListener("change", () =)
-
-// Hacer que los elementos del documento cambien dependiendo del switch
-function cambiarElementos(selec){
     switch (selec) {
     case "triangulo":
         console.log("triangulo")
-        
+        document.getElementById("pValor2").style.display = "block";
+        document.getElementById("pValor3").style.display = "block";
+        calcularTriangulo()
+
         break;
         
     case "circulo":
         console.log("circulo")
-        
+        document.getElementById("pValor2").style.display = "block";
+        document.getElementById("pValor3").style.display = "block";
+        calcularCirculo();
+
         break;
         
 
-    case "cuadrado":
-        console.log("cuadrado")
-        
+    case "cubo":
+        console.log("cubo")
+        document.getElementById("pValor2").style.display = "none";
+        document.getElementById("pValor3").style.display = "none";
+        calcularCubo(varVal1)
+
         break;
 
 
@@ -340,14 +348,130 @@ function cambiarElementos(selec){
     }
 }
 
-
-function Perimetro(val1, val2, val3) {
-    console.clear();
+function calcularTriangulo(val1, val2, val3) {
+    //console.clear();
     let valResultado = 0;
-    // Quiero hacer que dependiendo de la
-    // seleccion se muestre un conjunto de 
-    // opciones con un label 
-
+    let valArea;
+    let valPerimetro;
 
     document.getElementById("rPerimetro").innerHTML = "Resultado: " + valResultado;
 }
+
+function calcularCirculo(val1, val2, val3) {
+    //console.clear();
+    let valResultado = 0;
+    let valArea;
+    let valPerimetro;
+
+    document.getElementById("rPerimetro").innerHTML = "Resultado: " + valResultado;
+}
+
+function calcularCubo(val1) {
+    //console.clear();
+    let valArea = val1 * Math.pow(val1, 2);
+    let valPerimetro = 12 * val1;
+    let valVolumen = Math.pow(val1, 3);
+    
+    
+    document.getElementById("rPerimetro").innerHTML = valArea;
+}
+
+// 11
+// Validar
+// apellido (no mas de 30 caracteres)
+// nombre (no mas de 15)
+// DNI (no mas de 8)
+// mail (valido, @, 8 caracteres antes del @)
+// distrito (listado de 15 opciones)
+
+
+
+
+let btnEjerc11 = document.getElementById("btnEjerc11")
+btnEjerc11.addEventListener("click", () => {
+    let varNombre = document.getElementById("txtNombre");
+    let varApellido = document.getElementById("txtApellido");
+    let varDNI = document.getElementById("txtDNI");
+    let varMail = document.getElementById("txtMail").value;
+    let varSelecDistrito = document.getElementById("selecDistrito");
+
+    validaDatos(varNombre, varApellido, varDNI, varMail, varSelecDistrito);
+})
+
+
+function validaDatos(nombre, apellido, dni, mail) {
+    console.clear()
+    let validar;
+    
+    
+    if (nombre.value.length >= 15){
+        // EL nombre excede el limite
+        validar = false;
+        console.log(validar);
+        console.log(nombre.value.length);
+    }
+    else
+    {
+        // EL nombre excede el limite
+        validar = true;
+        console.log(validar);
+        console.log(nombre.value.length);
+    }
+
+    if (apellido.value.length >= 15){
+        // EL Apellido excede el limite
+        validar = false;
+        console.log(validar);
+        console.log(apellido.value.length);
+    }
+    else
+    {
+        // EL Apellido excede el limite
+        validar = true;
+        console.log(validar);
+        console.log(apellido.value.length);
+    }
+
+    if (dni.value.length >= 15){
+        // EL nombre excede el limite
+        validar = false;
+        console.log(validar);
+        console.log(dni.value.length);
+    }
+    else
+    {
+        // EL nombre excede el limite
+        validar = true;
+        console.log(validar);
+        console.log(dni.value.length);
+    }
+
+    if (validarEmail(mail)){
+        validar = true
+        console.log("El correo electrónico es válido.");
+    } 
+    else 
+    {
+        validar = false;
+        console.log("El correo electrónico no es válido.");
+    }
+
+    if (validar) {
+        document.getElementById("pEjerc11").innerHTML = "Todo en orden";
+    }
+}
+
+// codiguillo rapido de regEx de chatgpt adjgj
+function validarEmail(email) {
+    // Expresión regular para validar el formato del correo electrónico
+    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+    // Verificar si el correo electrónico cumple con la expresión regular
+    return regex.test(email) && email.length >= 8;
+}
+
+// 12
+/*  
+
+
+*/

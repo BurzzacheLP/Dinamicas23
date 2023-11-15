@@ -288,23 +288,27 @@
     <h2>Perimetrizador</h2>
     <small>(sin Terminar)</small>
     <div class="EjercContainer">
-        <select id="selecForma">
-            <option value="triagunlo">Triangulo</option>
+        <select id="selecForma" onchange="cambiarElementos(selecForma.value)">
+            <option value="triangulo">Triangulo</option>
             <option value="circulo">Circulo</option>
-            <option value="cuadrado">Cuadrado</option>
+            <option value="cubo">Cubo</option>
         </select>
         
-        
-        <label for="">Valor 1</label>
-        <input type="number" id="inputVal1"><br>
-        
-        
-        <label for="">Valor 2</label>
-        <input type="number" id="inputVal2"><br>
+        <p id="pValor1">
+            <label id="lbl1">Valor 1</label>
+            <input type="number" id="inputVal1"><br>
+        </p>
         
         
-        <label for="">Valor 3</label>
-        <input type="number" id="inputVal3"><br>
+        <p id="pValor2">
+            <label id="lbl2">Valor 2</label>
+            <input type="number" id="inputVal2"><br>
+        </p>
+            
+        <p id="pValor3">
+            <label id="lbl3">Valor 3</label>
+            <input type="number" id="inputVal3"><br>
+        </p>
 
         <button id="botonPerimetro">Calular</button>
 
@@ -314,8 +318,64 @@
 
     <hr>
 
+    <h2>Login truchaso mal</h2>
+
+    <div class="EjercContainer">
+        <p>
+            <label >Nombre</label>
+            <input type="text" id="txtNombre">
+        </p>
+        <p>
+            <label >Apellido</label>
+            <input type="text" id="txtApellido">
+        </p>
+        <p>
+            <label >DNI</label>
+            <input type="number" id="txtDNI">
+        </p>
+        <p>
+            <label >Mail</label>
+            <input type="mail" id="txtMail">
+        </p>
+        
+        <p>
+            <label >Distrito</label>
+            <!--Puse localidades pq ni idea q es un distrito y en gulgu tiran cualquiera-->
+            <select id="selecDistrito">
+                <option value="">Burzaco</option>
+                <option value="">Adrogue</option>
+                <option value="">Claypole</option>
+                <option value="">Glew</option>
+                <option value="">Longchamps</option>
+                <option value="">Lomas de Zamora</option>
+                <option value="">Banfield</option>
+                <option value="">Temperley</option>
+                <option value="">Escalada</option>
+                <option value="">Lanus</option>
+                <option value="">Quilmes</option>
+                <option value="">Ingeniero Budge</option>
+                <option value="">Villa Centenario</option>
+                <option value="">Berazategui</option>
+                <option value="">Moron</option>
+            </select>
+        </p>
+
+        <button id="btnEjerc11">Validar</button>
+        <p id="pEjerc11"></p>
+    </div>
+    
+    <hr>
+
+    <h2></h2>
+
+    <div class="EjercContainer">
+        
+    </div>
+
+    <hr>
+
     <small>no hice css pq no tenia ganas xd</small>
     
     <script src="/ejercicios.js"></script>
     </body>
-</html>
+    </html>
